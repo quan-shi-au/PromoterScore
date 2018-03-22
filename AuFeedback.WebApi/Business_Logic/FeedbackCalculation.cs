@@ -10,12 +10,14 @@ namespace AuFeedback.WebApi.BL
 {
     public class FeedbackCalculation : IFeedbackCalculation
     {
+        private readonly IRepository _repository;
         private readonly string _filePath;
         private const string _dateFormat = "yyyyMMdd";
 
-        public FeedbackCalculation(string filePath)
+        public FeedbackCalculation(string filePath, IRepository repository)
         {
             _filePath = filePath;
+            _repository = repository;
         }
 
         public TimeUp GetTimeUp(string userName, string questionType)
@@ -24,7 +26,7 @@ namespace AuFeedback.WebApi.BL
             bool isRecordExisting = false;
             bool? isTimeUp = null;
 
-            var allRecords = Repository.ReadFiles(_filePath);
+            var allRecords = _repository.ReadFiles(_filePath);
             var existingRecord = allRecords.FirstOrDefault(x => x.UserName == userName && x.QuestionType == questionType);
             if (existingRecord != null)
             {
@@ -52,14 +54,14 @@ namespace AuFeedback.WebApi.BL
 
             var todayDate = DateTime.Now.ToString(_dateFormat);
 
-            var allRecords = Repository.ReadFiles(_filePath);
+            var allRecords = _repository.ReadFiles(_filePath);
             var existingRecord = allRecords.FirstOrDefault(x => x.UserName == userName && x.QuestionType == questionType);
             if (existingRecord != null)
                 existingRecord.FeedbackDate = todayDate;
             else
                 allRecords.Add(new UserRecord { UserName = userName, FeedbackDate = todayDate, QuestionType=questionType });
 
-            Repository.WriteRecord(_filePath, allRecords);
+            _repository.WriteRecord(_filePath, allRecords);
         }
 
     }

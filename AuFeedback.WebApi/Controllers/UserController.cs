@@ -15,9 +15,9 @@ namespace AuFeedback.WebApi.Controllers
     {
         public JsonResult<TimeUp> Get(string userName, string questionType)
         {
-            var feedbackCalculation = new FeedbackCalculation(GetFilePath());
+            var feedbackCalculation = new FeedbackCalculation(GetFilePath(), new Repository());
 
-            return Json(feedbackCalculation.GetTimeUp(userName, questionType));;
+            return Json(feedbackCalculation.GetTimeUp(userName, questionType));
 
         }
 
@@ -26,7 +26,7 @@ namespace AuFeedback.WebApi.Controllers
         {
             try
             {
-                var feedbackCalculation = new FeedbackCalculation(GetFilePath());
+                var feedbackCalculation = new FeedbackCalculation(GetFilePath(),new Repository());
                 feedbackCalculation.AddUpdateFeedbackDate(userName, questionType);
 
                 return Json(new GeneralResult { IsSuccess = true });

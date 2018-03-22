@@ -1,16 +1,14 @@
 ﻿using AuFeedback.WebApi.Models;
 using CsvHelper;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Web;
 
 namespace AuFeedback.WebApi.Controllers
 {
-    public static class Repository
+    public class Repository : IRepository
     {
-        public static List<UserRecord> ReadFiles(string filePath)
+        public List<UserRecord> ReadFiles(string filePath)
         {
             if (!File.Exists(filePath))
                 return new List<UserRecord>();
@@ -20,8 +18,6 @@ namespace AuFeedback.WebApi.Controllers
                 CsvReader csvFile = new CsvReader(reader);
                 csvFile.Configuration.HasHeaderRecord = true;
 
-                //csvFile.Read();
-
                 var records = csvFile.GetRecords<UserRecord>().ToList();
 
                 return records;
@@ -29,7 +25,7 @@ namespace AuFeedback.WebApi.Controllers
 
         }
 
-        public static void WriteRecord(string filePath, IEnumerable<UserRecord> records)
+        public void WriteRecord(string filePath, IEnumerable<UserRecord> records)
         {
             using (var sw = new StreamWriter(filePath))
             {
