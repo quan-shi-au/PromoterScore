@@ -7,3 +7,4 @@ packages/
 AuFeedback.WebApi.Tests/obj/
 AuFeedback.WebApi.Tests/bin/
 Aufeedback.Presentation/dist/
+Aufeedback.Presentation/bin/
