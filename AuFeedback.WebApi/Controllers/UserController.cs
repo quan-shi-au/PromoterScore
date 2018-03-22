@@ -1,11 +1,6 @@
 ﻿using AuFeedback.WebApi.BL;
 using AuFeedback.WebApi.Models;
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 
@@ -23,25 +18,6 @@ namespace AuFeedback.WebApi.Controllers
             var feedbackCalculation = new FeedbackCalculation(GetFilePath());
 
             return Json(feedbackCalculation.GetTimeUp(userName, questionType));;
-
-        }
-
-
-        //todo: change this into HttpPost
-        [HttpGet]
-        public JsonResult<GeneralResult> Save(string userName, string questionType)
-        {
-            try
-            {
-                var feedbackCalculation = new FeedbackCalculation(GetFilePath());
-                feedbackCalculation.AddUpdateFeedbackDate(userName, questionType);
-
-                return Json(new GeneralResult { IsSuccess = true });
-            }
-            catch (Exception e)
-            {
-                return Json(new GeneralResult { IsSuccess = false, ErrorMessage = e.Message });
-            }
 
         }
 
