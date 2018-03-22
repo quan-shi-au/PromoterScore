@@ -10,7 +10,7 @@ import { AuthenticationService } from '../../core/services/authentication.servic
 })
 export class RedComponent implements OnInit {
     public localQuestionType = 'red';
-    public isFeedbackProvided: boolean = false;
+    public isFeedbackProvided: boolean = true;
     public localUserName: string;
 
     constructor(
@@ -42,8 +42,6 @@ export class RedComponent implements OnInit {
 
             },
             (err: HttpErrorResponse) => {
-                console.log(err);
-
             }
         );
 

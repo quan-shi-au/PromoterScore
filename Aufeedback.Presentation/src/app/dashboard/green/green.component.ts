@@ -11,7 +11,7 @@ import { AuthenticationService } from '../../core/services/authentication.servic
 export class GreenComponent implements OnInit {
 
     public localQuestionType = 'green';
-    public isFeedbackProvided: boolean = false;
+    public isFeedbackProvided: boolean = true;
     public localUserName: string;
 
     constructor(
@@ -36,8 +36,6 @@ export class GreenComponent implements OnInit {
 
         this.http.get('https://aufeedbackapi.azurewebsites.net/api/user/get?userName=' + this.localUserName + '&questionType=' + this.localQuestionType).subscribe(
             (data: any) => {
-
-                debugger;
 
                 if (!data.IsTimeUp && data.IsRecordExisting)
                     this.isFeedbackProvided = true;

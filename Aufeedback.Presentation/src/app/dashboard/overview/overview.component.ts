@@ -11,7 +11,7 @@ import { AuthenticationService } from '../../core/services/authentication.servic
 export class OverviewComponent implements OnInit {
 
     public localQuestionType = 'site';
-    public isFeedbackProvided: boolean = false;
+    public isFeedbackProvided: boolean = true;
     public localUserName: string;
 
     constructor(
