@@ -8,7 +8,7 @@ using System.Web;
 
 namespace AuFeedback.WebApi.BL
 {
-    public class FeedbackCalculation
+    public class FeedbackCalculation : IFeedbackCalculation
     {
         private readonly string _filePath;
         private const string _dateFormat = "yyyyMMdd";
