@@ -1,0 +1,10 @@
+<div>
+    <button type="button" class="close" (click)="closeIt();">&times;</button>
+    <h4 class="modal-title feedback-modal-caption">{{caption}}</h4>
+</div>
+
+<div class="card-header">
+    <div class="form-group" [ngClass]="{'feedback-reset-margin' : resetMargin}">
+        <label class="feedback-modal-title">{{title}}</label>
+    </div>
+</div>

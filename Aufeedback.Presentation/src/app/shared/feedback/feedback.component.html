@@ -1,0 +1,70 @@
+﻿
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card fb-page-subtitle">
+                <div class="card-header feedback-dashboard-overview-subtitle">
+                    <div class="fb-font-bold">
+                        Please tell us how much you like our {{objectName}}.
+
+                        <button class="btn" (click)="addPartner();" style="margin-left:10px;">Question</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<modal id="partner-insert-modal">
+    <div class="custom-modal">
+
+
+
+        <div class="custom-modal-body">
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form #questionForm="ngForm" novalidate (ngSubmit)="submitQuestion(questionForm)">
+                        <div class="fb-popup-content">
+
+                            <modalheader-cmp [caption]="localCaption" [title]="localTitle" [resetMargin]="resetMargin" (closeModal)="closeModalLocal($event)">
+                            </modalheader-cmp>
+
+                            <div class="card-content">
+                                    <div class="form-group" [hidden]="!isFirstQuestion">
+                                        <label for="name">Thank you for using  our {{objectName}}.</label>
+
+                                        <label for="name" style="margin-bottom:20px;">We would appreciate your feedback by answering this question.</label>
+                                        <label for="name">How likely would you be to recommend this service to others?</label>
+                                        <label for="name">Please put a number between 1 and 10.</label>
+                                        <input type="text" maxlength="250" class="form-control" id="ranking" name="ranking" [(ngModel)]="ranking" (keyup)="validateRank(questionForm)">
+                                        <small class="text-danger" [hidden]="isRankingValid || !questionForm.controls.ranking?.dirty || !questionForm.controls.ranking?.touched">
+                                            Number is invalid. Please try again.
+                                        </small>
+                                    </div>
+
+                                    <div class="form-group" [hidden]="isFirstQuestion">
+                                        <label for="name">{{secondQuestion}}</label>
+                                        <input type="text" maxlength="250" class="form-control" id="answer" name="answer" [(ngModel)]="answer" (keyup)="validateAnswer(questionForm)">
+                                        <small class="text-danger" [hidden]="isAnswerValid || !questionForm.controls.answer?.dirty || !questionForm.controls.answer?.touched">
+                                            Answer is invalid. Please try again.
+                                        </small>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-default pull-right" [disabled]="(isFirstQuestion && !isRankingValid) || (!isFirstQuestion && !isAnswerValid)">Save</button>
+                                    </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="custom-modal-background"></div>
+</modal>

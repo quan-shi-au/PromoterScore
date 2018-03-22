@@ -1,0 +1,9 @@
+Aufeedback.Presentation/node_modules/
+.vs/
+Aufeedback.Presentation/obj/
+Aufeedback.WebApi/bin/
+Aufeedback.WebApi/obj/
+packages/
+AuFeedback.WebApi.Tests/obj/
+AuFeedback.WebApi.Tests/bin/
+Aufeedback.Presentation/dist/
