@@ -45,6 +45,23 @@ namespace AuFeedback.WebApi.Controllers
 
         }
 
+        [HttpPost]
+        public JsonResult<GeneralResult> Post(string userName, string questionType)
+        {
+            try
+            {
+                var feedbackCalculation = new FeedbackCalculation(GetFilePath());
+                feedbackCalculation.AddUpdateFeedbackDate(userName, questionType);
+
+                return Json(new GeneralResult { IsSuccess = true });
+            }
+            catch (Exception e)
+            {
+                return Json(new GeneralResult { IsSuccess = false, ErrorMessage = e.Message });
+            }
+
+        }
+
         private string GetFilePath()
         {
             var fileFolder = HttpContext.Current.Server.MapPath("~/App_Data");

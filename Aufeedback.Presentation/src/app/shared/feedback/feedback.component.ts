@@ -80,7 +80,12 @@ export class FeedbackComponent implements OnInit {
                 this.secondQuestion = 'Is there anything you particularly like?';
 
                 //todo: change this to post
-            this.http.get('https://aufeedbackapi.azurewebsites.net/api/user/save?userName=' + this.userName + '&questionType=' + this.questionType)
+            this.http.post('https://aufeedbackapi.azurewebsites.net/api/user/Post?userName=' + this.userName + '&questionType=' + this.questionType,
+                {
+                    userName: this.userName,
+                    questionType: this.questionType
+                }
+            )
                 .subscribe(
                 (data: any) => {
                     debugger;
