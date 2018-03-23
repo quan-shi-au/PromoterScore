@@ -13,9 +13,16 @@ namespace AuFeedback.WebApi.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class UserController : ApiController
     {
+        private readonly IRepository _repository;
+
+        public UserController(IRepository repository)
+        {
+            _repository = repository;
+        }
+
         public JsonResult<TimeUp> Get(string userName, string questionType)
         {
-            var feedbackCalculation = new FeedbackCalculation(GetFilePath(), new Repository());
+            var feedbackCalculation = new FeedbackCalculation(GetFilePath(), _repository);
 
             return Json(feedbackCalculation.GetTimeUp(userName, questionType));
 
@@ -26,7 +33,7 @@ namespace AuFeedback.WebApi.Controllers
         {
             try
             {
-                var feedbackCalculation = new FeedbackCalculation(GetFilePath(),new Repository());
+                var feedbackCalculation = new FeedbackCalculation(GetFilePath(), _repository);
                 feedbackCalculation.AddUpdateFeedbackDate(userName, questionType);
 
                 return Json(new GeneralResult { IsSuccess = true });
