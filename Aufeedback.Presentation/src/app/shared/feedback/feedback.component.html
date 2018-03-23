@@ -1,5 +1,4 @@
-﻿
-<div class="container-fluid">
+﻿<div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
             <div class="card fb-page-subtitle">
@@ -15,25 +14,15 @@
     </div>
 </div>
 
-
-
-
 <modal id="partner-insert-modal">
     <div class="custom-modal">
-
-
-
         <div class="custom-modal-body">
-
-
             <div class="row">
                 <div class="col-md-12">
                     <form #questionForm="ngForm" novalidate (ngSubmit)="submitQuestion(questionForm)">
                         <div class="fb-popup-content">
-
                             <modalheader-cmp [caption]="localCaption" [title]="localTitle" [resetMargin]="resetMargin" (closeModal)="closeModalLocal($event)">
                             </modalheader-cmp>
-
                             <div class="card-content">
                                     <div class="form-group" [hidden]="!isFirstQuestion">
                                         <label for="name">Thank you for using  our {{objectName}}.</label>

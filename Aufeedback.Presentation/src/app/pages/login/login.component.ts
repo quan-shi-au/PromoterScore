@@ -2,12 +2,8 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import {HttpErrorResponse} from '@angular/common/http';
-
-
 import { AuthenticationService } from '../../core/services/authentication.service';
-
 import { AlertService } from '../../core/services/alert.service'
-
 declare var $:any;
 
 @Component({
@@ -38,36 +34,7 @@ export class LoginComponent implements OnInit{
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
     }
-    checkFullPageBackgroundImage(){
-        var $page = $('.full-page');
-        var image_src = $page.data('image');
 
-        if(image_src !== undefined){
-            var image_container = '<div class="full-page-background" style="background-image: url(' + image_src + ') "/>'
-            $page.append(image_container);
-        }
-    };
-
-    ngOnInit() {
-
-        // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'];
-
-        this.checkFullPageBackgroundImage();
-
-        var navbar : HTMLElement = this.element.nativeElement;
-        this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
-
-        setTimeout(function () {
-            // after 1000 ms we add the class animated to the login/register card
-            $('.card').removeClass('card-hidden');
-        }, 700);
-
-        this.initializeLanguage();
-    }
-
-    initializeLanguage() {
-    }
 
     login() {
 
@@ -110,4 +77,31 @@ export class LoginComponent implements OnInit{
             body.classList.remove('nav-open');
         }
     }
+
+    ngOnInit() {
+
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'];
+
+        this.checkFullPageBackgroundImage();
+
+        var navbar: HTMLElement = this.element.nativeElement;
+        this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
+
+        setTimeout(function () {
+            $('.card').removeClass('card-hidden');
+        }, 700);
+
+    }
+
+    checkFullPageBackgroundImage() {
+        var $page = $('.full-page');
+        var image_src = $page.data('image');
+
+        if (image_src !== undefined) {
+            var image_container = '<div class="full-page-background" style="background-image: url(' + image_src + ') "/>'
+            $page.append(image_container);
+        }
+    };
+
+
 }

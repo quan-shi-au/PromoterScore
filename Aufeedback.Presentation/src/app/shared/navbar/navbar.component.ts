@@ -68,12 +68,10 @@ export class NavbarComponent implements OnInit{
                 },300);
             }
 
-            // we simulate the window Resize so the charts will get updated in realtime.
             var simulateWindowResize = setInterval(function(){
                 window.dispatchEvent(new Event('resize'));
             },180);
 
-            // we stop the simulation of Window Resize after the animations are completed
             setTimeout(function(){
                 clearInterval(simulateWindowResize);
             },1000);
@@ -103,8 +101,6 @@ export class NavbarComponent implements OnInit{
         body.classList.remove('nav-open');
     }
     sidebarToggle(){
-        // var toggleButton = this.toggleButton;
-        // var body = document.getElementsByTagName('body')[0];
         if(this.sidebarVisible == false){
             this.sidebarOpen();
         } else {
@@ -127,7 +123,6 @@ export class NavbarComponent implements OnInit{
     }
 
     getPath(){
-        // console.log(this.location);
         return this.location.prepareExternalUrl(this.location.path());
     }
 }

@@ -77,20 +77,14 @@ export class FeedbackComponent implements OnInit {
             if (this.ranking >= 9 && this.ranking <= 10)
                 this.secondQuestion = 'Is there anything you particularly like?';
 
-                //todo: change this to post
-            this.http.post('https://aufeedbackapi.azurewebsites.net/api/user/Post?userName=' + this.userName + '&questionType=' + this.questionType, {}
-            )
+            this.http.post('https://aufeedbackapi.azurewebsites.net/api/user/Post?userName=' + this.userName + '&questionType=' + this.questionType, {})
                 .subscribe(
                 (data: any) => {
-
                     this.refreshPage.emit();
-
                 },
                 (err) => {
                 }
             );
-
-
         }
         else
             this.modalService.close('partner-insert-modal');
@@ -99,7 +93,6 @@ export class FeedbackComponent implements OnInit {
 
     submitQuestion2(secondQuestionForm) {
         //todo: save answers into repository.
-
     }
 
     validateAnswer(questionForm) {

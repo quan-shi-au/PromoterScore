@@ -8,7 +8,6 @@ declare var $: any;
     moduleId: module.id.toString(),
     selector: 'modal',
     template: '<ng-content></ng-content>',
-    //styleUrls: ['modal.css']
 })
 
 export class ModalComponent implements OnInit, OnDestroy {

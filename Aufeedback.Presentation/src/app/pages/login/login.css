@@ -1,9 +1,3 @@
-﻿.feedback-language {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom:50px;
-}
-
-.login-page > .content, .lock-page > .content {
+﻿.login-page > .content, .lock-page > .content {
     padding-top: 10vh !important;
 }

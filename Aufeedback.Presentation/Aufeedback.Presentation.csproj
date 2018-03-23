@@ -59,14 +59,11 @@
     <None Include=".vs\tasks.vs.json" />
     <None Include=".vs\VSWorkspaceState.json" />
     <None Include="angular-cli.json" />
-    <None Include="CHANGELOG.md" />
     <None Include="e2e\tsconfig.e2e.json" />
-    <None Include="New File" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="package-lock.json" />
     <None Include="package.json" />
     <None Include="src\assets\css\paper-dashboard.css.map" />
-    <None Include="src\assets\env-specific.json" />
     <None Include="src\assets\sass\paper-dashboard.scss" />
     <None Include="src\assets\sass\paper\mixins\_alerts.scss" />
     <None Include="src\assets\sass\paper\mixins\_buttons.scss" />
@@ -137,7 +134,6 @@
   <ItemGroup>
     <Content Include="karma.conf.js" />
     <Content Include="protractor.conf.js" />
-    <Content Include="readme.txt" />
     <Content Include="src\app\app.component.css" />
     <Content Include="src\app\app.component.html" />
     <Content Include="src\app\dashboard\green\green.component.html" />
@@ -172,7 +168,6 @@
     <Content Include="src\assets\img\apple-icon.png" />
     <Content Include="src\assets\img\background.jpg" />
     <Content Include="src\assets\img\default-avatar.png" />
-    <Content Include="src\assets\img\_favicon.ico" />
     <Content Include="src\assets\js\jquery-3.2.1.min.js" />
     <Content Include="src\assets\js\jquery-jvectormap.js" />
     <Content Include="src\assets\js\jquery.validate.min.js" />
