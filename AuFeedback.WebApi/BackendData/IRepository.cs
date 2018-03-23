@@ -1,7 +1,7 @@
 ﻿using AuFeedback.WebApi.Models;
 using System.Collections.Generic;
 
-namespace AuFeedback.WebApi.Controllers
+namespace AuFeedback.WebApi.BackendData
 {
     public interface IRepository
     {
