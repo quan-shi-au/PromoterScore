@@ -1,12 +1,16 @@
-Please navigate to https://ausfeedback.azurewebsites.net for demo.<br />
-	- type any user name to login.<br />
+# Promoter Tool<br />
+
+## Source Code: https://github.com/quan-shi-au/PromoterScore<br />
+
+## Demo site: https://ausfeedback.azurewebsites.net for demo.<br />
+### type any user name to login.<br />
   
-Web API and web site are both hosted in Windows Azure.<br />
+## Web API and web site are both hosted in Windows Azure.<br />
 
-UI is developed with Angular 4.<br />
+## UI is developed with Angular 4.<br />
 
-Web API is developed with .net Web API.<br />
-	- Unity Dependency Injection
-	- MS Unit test
-	- NSubstitute mocking library
+## Web API is developed with .net Web API.<br />
+### Unity Dependency Injection<br />
+### MS Unit test<br />
+### NSubstitute mocking library<br />
 
